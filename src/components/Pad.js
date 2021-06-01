@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useSound from 'use-sound';
 
 function Pad({ file }) {
-  const [play] = useSound(file);
+  const [play, { stop }] = useSound(file);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  return <div className='pad' onClick={play}></div>;
+  const handleClick = () => {
+    if (!isPlaying) {
+      play();
+    } else {
+      stop();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  return <div className='pad' onClick={handleClick}></div>;
 }
 
 export default Pad;

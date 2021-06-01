@@ -1,13 +1,14 @@
+@use 'base';
+
 .padsContainer {
-  height: 400px;
-  width: 400px;
+  height: 60vh;
+  width: 60vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 5px;
 
   .pad {
     cursor: pointer;
-    border: 1px solid #f9f9f9;
-    background-color: aqua;
+    background-color: base.$primaryColor;
   }
 }
