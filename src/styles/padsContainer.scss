@@ -1,0 +1,13 @@
+.padsContainer {
+  height: 400px;
+  width: 400px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+
+  .pad {
+    cursor: pointer;
+    border: 1px solid #f9f9f9;
+    background-color: aqua;
+  }
+}
