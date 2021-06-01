@@ -1,14 +1,37 @@
+import React, { useEffect, useState } from 'react';
 import './styles/App.scss';
 import PadsContainer from './components/PadsContainer';
+import { TimeContext } from './TimeContext';
 
 function App() {
+  const [timer, setTimer] = useState(0); // An global timer
+  const [enableCounter, setEnableCounter] = useState(0); // Check if there are pads on
+
+  useEffect(() => {
+    if (enableCounter > 0) {
+      const interval = setInterval(() => {
+        if (timer === 7000) {
+          setTimer(0);
+        } else {
+          setTimer((prevTime) => (prevTime += 10));
+        }
+      }, 10);
+      return () => clearInterval(interval);
+    } else {
+      setTimer(0);
+      return;
+    }
+  }, [timer, enableCounter]);
+
   return (
-    <div className='App'>
-      <h1>Loop Machine</h1>
-      <div>
-        <PadsContainer />
+    <TimeContext.Provider value={{ timer, setEnableCounter }}>
+      <div className='App'>
+        <h1>Loop Machine</h1>
+        <div>
+          <PadsContainer />
+        </div>
       </div>
-    </div>
+    </TimeContext.Provider>
   );
 }
 
