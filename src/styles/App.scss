@@ -9,4 +9,14 @@
     font-size: 5vh;
     color: base.$primaryColor;
   }
+
+  .audioPlayer {
+    width: base.$size;
+  }
+}
+
+@media only screen and (max-width: base.$size) {
+  .audioPlayer {
+    width: base.$smallSize;
+  }
 }

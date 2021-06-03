@@ -42,7 +42,7 @@ function App() {
           setEnableAllSounds={setEffectAllSounds}
           setRecordUrl={setRecordUrl}
         />
-        <div style={{ width: '60vh', height: '1vh' }}>
+        <div classname='audioPlayer'>
           {recordUrl ? <AudioPlayer src={recordUrl} /> : null}
         </div>
       </div>

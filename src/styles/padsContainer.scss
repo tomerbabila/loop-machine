@@ -1,8 +1,8 @@
 @use 'base';
 
 .padsContainer {
-  height: 60vh;
-  width: 60vh;
+  height: 500px;
+  width: 500px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
@@ -33,5 +33,12 @@
   }
   100% {
     background-color: rgb(random(255), random(255), random(255));
+  }
+}
+
+@media only screen and (max-width: base.$size) {
+  .padsContainer {
+    height: base.$smallSize;
+    width: base.$smallSize;
   }
 }
