@@ -1,3 +1,5 @@
+@use 'base';
+
 .App {
   display: flex;
   flex-direction: column;
@@ -5,5 +7,6 @@
 
   h1 {
     font-size: 5vh;
+    color: base.$primaryColor;
   }
 }
