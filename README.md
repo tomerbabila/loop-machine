@@ -1,6 +1,6 @@
 # Loop Machine
 
-###[Check it out!](https://github.com/facebook/create-react-app).
+## [Check it out here!](https://github.com/facebook/create-react-app)
 
 ## Stack
 

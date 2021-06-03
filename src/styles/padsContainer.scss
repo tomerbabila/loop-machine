@@ -9,13 +9,30 @@
 
   .pad {
     cursor: pointer;
+    border: 1px black solid;
   }
 
   .playing {
     background-color: base.$playingColor;
+    animation: changeColor 7s infinite;
   }
 
   .notPlaying {
     background-color: base.$primaryColor;
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    background-color: rgb(random(255), random(255), random(255));
+  }
+  25% {
+    background-color: rgb(random(255), random(255), random(255));
+  }
+  50% {
+    background-color: rgb(random(255), random(255), random(255));
+  }
+  100% {
+    background-color: rgb(random(255), random(255), random(255));
   }
 }
