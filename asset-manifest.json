@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/loop-machine/static/css/main.43c4ef1e.chunk.css",
+    "main.js": "/loop-machine/static/js/main.f066295b.chunk.js",
+    "main.js.map": "/loop-machine/static/js/main.f066295b.chunk.js.map",
+    "runtime-main.js": "/loop-machine/static/js/runtime-main.eb035683.js",
+    "runtime-main.js.map": "/loop-machine/static/js/runtime-main.eb035683.js.map",
+    "static/css/2.d65c2e00.chunk.css": "/loop-machine/static/css/2.d65c2e00.chunk.css",
+    "static/js/2.4b01dcf7.chunk.js": "/loop-machine/static/js/2.4b01dcf7.chunk.js",
+    "static/js/2.4b01dcf7.chunk.js.map": "/loop-machine/static/js/2.4b01dcf7.chunk.js.map",
+    "index.html": "/loop-machine/index.html",
+    "static/css/2.d65c2e00.chunk.css.map": "/loop-machine/static/css/2.d65c2e00.chunk.css.map",
+    "static/css/main.43c4ef1e.chunk.css.map": "/loop-machine/static/css/main.43c4ef1e.chunk.css.map",
+    "static/js/2.4b01dcf7.chunk.js.LICENSE.txt": "/loop-machine/static/js/2.4b01dcf7.chunk.js.LICENSE.txt",
+    "static/media/120_future_funk_beats_25.5eb417fc.mp3": "/loop-machine/static/media/120_future_funk_beats_25.5eb417fc.mp3",
+    "static/media/120_stutter_breakbeats_16.37c82282.mp3": "/loop-machine/static/media/120_stutter_breakbeats_16.37c82282.mp3",
+    "static/media/Bass Warwick heavy funk groove on E 120 BPM.52c24c81.mp3": "/loop-machine/static/media/Bass Warwick heavy funk groove on E 120 BPM.52c24c81.mp3",
+    "static/media/FUD_120_StompySlosh.27bdc145.mp3": "/loop-machine/static/media/FUD_120_StompySlosh.27bdc145.mp3",
+    "static/media/GrooveB_120bpm_Tanggu.3e1411b4.mp3": "/loop-machine/static/media/GrooveB_120bpm_Tanggu.3e1411b4.mp3",
+    "static/media/MazePolitics_120_Perc.2d08c654.mp3": "/loop-machine/static/media/MazePolitics_120_Perc.2d08c654.mp3",
+    "static/media/PAS3GROOVE1.03B.f77c6da4.mp3": "/loop-machine/static/media/PAS3GROOVE1.03B.f77c6da4.mp3",
+    "static/media/SilentStar_120_Em_OrganSynth.f2d668af.mp3": "/loop-machine/static/media/SilentStar_120_Em_OrganSynth.f2d668af.mp3",
+    "static/media/electric guitar coutry slide 120bpm - B.230fcab8.mp3": "/loop-machine/static/media/electric guitar coutry slide 120bpm - B.230fcab8.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eb035683.js",
+    "static/css/2.d65c2e00.chunk.css",
+    "static/js/2.4b01dcf7.chunk.js",
+    "static/css/main.43c4ef1e.chunk.css",
+    "static/js/main.f066295b.chunk.js"
+  ]
+}
