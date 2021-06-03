@@ -8,6 +8,7 @@ function Pad({ file, canPlay }) {
     useContext(TimeContext);
 
   const handleClick = () => {
+    // Change isPlaying state (on / off)
     if (!isPlaying) {
       setEnableCounter((prevCount) => (prevCount += 1));
     } else {
@@ -17,6 +18,7 @@ function Pad({ file, canPlay }) {
   };
 
   useEffect(() => {
+    // Play only when play button is clicked and the pad is on
     if (canPlay && isPlaying) {
       if (timer !== 0) {
         setTimeout(() => {
@@ -34,22 +36,18 @@ function Pad({ file, canPlay }) {
   }, [canPlay, isPlaying]);
 
   useEffect(() => {
-    if (effectAllSounds.change === 'enable') {
-      if (!isPlaying) {
-        setIsPlaying(true);
-        setEnableCounter((prevCount) => (prevCount += 1));
-      }
-      setEffectAllSounds(false);
+    // Turn on all pads when clicked or stop all pads
+    if (effectAllSounds.change === 'enable' && !isPlaying) {
+      setIsPlaying(true);
+      setEnableCounter((prevCount) => (prevCount += 1));
     }
-    if (effectAllSounds.change === 'disable') {
-      if (isPlaying) {
-        setIsPlaying(false);
-        setEnableCounter((prevCount) => (prevCount -= 1));
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
-      }
-      setEffectAllSounds(false);
+    if (effectAllSounds.change === 'disable' && isPlaying) {
+      setIsPlaying(false);
+      setEnableCounter((prevCount) => (prevCount -= 1));
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
     }
+    setEffectAllSounds(false);
   }, [effectAllSounds]);
 
   return (

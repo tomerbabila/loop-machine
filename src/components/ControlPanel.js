@@ -8,24 +8,28 @@ import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import Recorder from '../modules/Recorder';
 
-function ControlPanel({ setEnableAllSounds, setCanPlay }) {
+function ControlPanel({ setEnableAllSounds, setCanPlay, setRecordUrl }) {
   const [isRecording, setIsRecording] = useState(false);
   const [record, setRecord] = useState(null);
-  const [recordUrl, setRecordUrl] = useState(null);
 
-  const handleClick = (bool) => {
+  const handlePlayStop = (bool) => {
+    // Handle play / stop buttons
     setCanPlay(bool);
   };
 
   const changeAllSounds = (message) => {
+    // Handle 'play all pads' (smiley) and stop buttons
     setEnableAllSounds({ change: message });
+    if (message === 'disable') {
+      setCanPlay(false);
+    }
   };
 
   const startRecord = () => {
+    // Start a new record
     const audioContext = new window.AudioContext();
-
     navigator.mediaDevices
-      .getDisplayMedia({ audio: true, video: true })
+      .getDisplayMedia({ audio: true, video: true }) // Use device and not mic / camera
       .then((stream) => {
         const input = audioContext.createMediaStreamSource(stream);
         const rec = new Recorder(input, { numChannels: 1 });
@@ -36,6 +40,7 @@ function ControlPanel({ setEnableAllSounds, setCanPlay }) {
   };
 
   function stopRecord() {
+    // Stop record
     record.stop();
     record.exportWAV((blob) => {
       let blobUrl = URL.createObjectURL(blob);
@@ -44,36 +49,31 @@ function ControlPanel({ setEnableAllSounds, setCanPlay }) {
   }
 
   const handleRecord = () => {
-    // handle record button
+    // Handle record button
     isRecording ? stopRecord() : startRecord();
     setIsRecording(!isRecording);
   };
 
   return (
     <div className='controlPanel'>
-      <div classname='buttonsContainer'>
-        <PlayArrowOutlinedIcon
-          fontSize='large'
-          onClick={() => handleClick(true)}
-        />
-        <PauseOutlinedIcon
-          fontSize='large'
-          onClick={() => handleClick(false)}
-        />
-        <StopOutlinedIcon
-          fontSize='large'
-          onClick={() => changeAllSounds('disable')}
-        />
-        <MoodIcon fontSize='large' onClick={() => changeAllSounds('enable')} />
-        {isRecording ? (
-          <RadioButtonCheckedIcon fontSize='large' onClick={handleRecord} />
-        ) : (
-          <RadioButtonUncheckedIcon fontSize='large' onClick={handleRecord} />
-        )}
-      </div>
-      <div className='recordPlayer'>
-        {recordUrl ? <audio controls src={recordUrl}></audio> : null}
-      </div>
+      <PlayArrowOutlinedIcon
+        fontSize='large'
+        onClick={() => handlePlayStop(true)}
+      />
+      <PauseOutlinedIcon
+        fontSize='large'
+        onClick={() => handlePlayStop(false)}
+      />
+      <StopOutlinedIcon
+        fontSize='large'
+        onClick={() => changeAllSounds('disable')}
+      />
+      <MoodIcon fontSize='large' onClick={() => changeAllSounds('enable')} />
+      {isRecording ? (
+        <RadioButtonCheckedIcon fontSize='large' onClick={handleRecord} />
+      ) : (
+        <RadioButtonUncheckedIcon fontSize='large' onClick={handleRecord} />
+      )}
     </div>
   );
 }
