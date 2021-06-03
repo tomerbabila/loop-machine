@@ -4,7 +4,8 @@ import { TimeContext } from '../TimeContext';
 function Pad({ file, canPlay }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-  const { timer, setEnableCounter } = useContext(TimeContext);
+  const { timer, setEnableCounter, effectAllSounds, setEffectAllSounds } =
+    useContext(TimeContext);
 
   const handleClick = () => {
     if (!isPlaying) {
@@ -19,7 +20,7 @@ function Pad({ file, canPlay }) {
     if (canPlay && isPlaying) {
       if (timer !== 0) {
         setTimeout(() => {
-          if (!canPlay) {
+          if (canPlay) {
             audioRef.current.play();
           }
         }, 8000 - timer);
@@ -32,8 +33,30 @@ function Pad({ file, canPlay }) {
     }
   }, [canPlay, isPlaying]);
 
+  useEffect(() => {
+    if (effectAllSounds.change === 'enable') {
+      if (!isPlaying) {
+        setIsPlaying(true);
+        setEnableCounter((prevCount) => (prevCount += 1));
+      }
+      setEffectAllSounds(false);
+    }
+    if (effectAllSounds.change === 'disable') {
+      if (isPlaying) {
+        setIsPlaying(false);
+        setEnableCounter((prevCount) => (prevCount -= 1));
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      setEffectAllSounds(false);
+    }
+  }, [effectAllSounds]);
+
   return (
-    <div className='pad' onClick={handleClick}>
+    <div
+      onClick={handleClick}
+      className={isPlaying ? 'playing pad' : 'notPlaying pad'}
+    >
       <audio src={file} ref={audioRef} loop={true}></audio>
     </div>
   );

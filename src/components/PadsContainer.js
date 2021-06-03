@@ -7,7 +7,7 @@ function PadsContainer({ canPlay }) {
   return (
     <div className='padsContainer'>
       {sounds.map((sound, i) => (
-        <Pad file={sound} canPlay={canPlay} key={i}></Pad>
+        <Pad file={sound} canPlay={canPlay} key={i} />
       ))}
     </div>
   );

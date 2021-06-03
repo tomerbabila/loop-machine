@@ -9,6 +9,13 @@
 
   .pad {
     cursor: pointer;
+  }
+
+  .playing {
+    background-color: base.$playingColor;
+  }
+
+  .notPlaying {
     background-color: base.$primaryColor;
   }
 }

@@ -8,6 +8,7 @@ function App() {
   const [timer, setTimer] = useState(0); // An global timer
   const [enableCounter, setEnableCounter] = useState(0); // Check if there are pads on
   const [canPlay, setCanPlay] = useState(false);
+  const [effectAllSounds, setEffectAllSounds] = useState(false);
 
   useEffect(() => {
     if (canPlay && enableCounter > 0) {
@@ -26,13 +27,18 @@ function App() {
   }, [timer, enableCounter, canPlay]);
 
   return (
-    <TimeContext.Provider value={{ timer, setEnableCounter }}>
+    <TimeContext.Provider
+      value={{ timer, setEnableCounter, effectAllSounds, setEffectAllSounds }}
+    >
       <div className='App'>
         <h1>Loop Machine</h1>
         <div>
           <PadsContainer canPlay={canPlay} />
         </div>
-        <ControlPanel canPlay={canPlay} setCanPlay={setCanPlay} />
+        <ControlPanel
+          setCanPlay={setCanPlay}
+          setEnableAllSounds={setEffectAllSounds}
+        />
       </div>
     </TimeContext.Provider>
   );
