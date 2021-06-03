@@ -1,29 +1,36 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { TimeContext } from '../TimeContext';
 
-function Pad({ file }) {
+function Pad({ file, canPlay }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
   const { timer, setEnableCounter } = useContext(TimeContext);
 
   const handleClick = () => {
     if (!isPlaying) {
+      setEnableCounter((prevCount) => (prevCount += 1));
+    } else {
+      setEnableCounter((prevCount) => (prevCount -= 1));
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    if (canPlay && isPlaying) {
       if (timer !== 0) {
-        setEnableCounter((prevCount) => (prevCount += 1));
         setTimeout(() => {
-          audioRef.current.play();
+          if (!canPlay) {
+            audioRef.current.play();
+          }
         }, 8000 - timer);
       } else {
-        setEnableCounter((prevCount) => (prevCount += 1));
         audioRef.current.play();
       }
     } else {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
-      setEnableCounter((prevCount) => (prevCount -= 1));
     }
-    setIsPlaying(!isPlaying);
-  };
+  }, [canPlay, isPlaying]);
 
   return (
     <div className='pad' onClick={handleClick}>

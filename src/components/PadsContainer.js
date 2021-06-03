@@ -3,11 +3,11 @@ import '../styles/padsContainer.scss';
 import sounds from '../sounds';
 import Pad from './Pad';
 
-function PadsContainer() {
+function PadsContainer({ canPlay }) {
   return (
     <div className='padsContainer'>
       {sounds.map((sound, i) => (
-        <Pad file={sound} key={i}></Pad>
+        <Pad file={sound} canPlay={canPlay} key={i}></Pad>
       ))}
     </div>
   );
