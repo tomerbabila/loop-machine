@@ -6175,6 +6175,11 @@
   "resolved" "https://registry.npmjs.org/ini/-/ini-1.3.8.tgz"
   "version" "1.3.8"
 
+"inline-worker@^1.1.0":
+  "integrity" "sha1-VelvVJFaZCsAhyotqm/oMrQkyY0="
+  "resolved" "https://registry.npmjs.org/inline-worker/-/inline-worker-1.1.0.tgz"
+  "version" "1.1.0"
+
 "internal-ip@^4.3.0":
   "integrity" "sha512-S1zBo1D6zcsyuC6PMmY5+55YMILQ9av8lotMx447Bq6SAgo/sDK6y6uUKmuYhW7eacnIhFfsPmCNYdDzsnnDCg=="
   "resolved" "https://registry.npmjs.org/internal-ip/-/internal-ip-4.3.0.tgz"
@@ -9800,6 +9805,13 @@
   "version" "3.5.0"
   dependencies:
     "picomatch" "^2.2.1"
+
+"recorder-js@^1.0.7":
+  "integrity" "sha1-VBbwXIY9lcS260smWK1sG6+fVnc="
+  "resolved" "https://registry.npmjs.org/recorder-js/-/recorder-js-1.0.7.tgz"
+  "version" "1.0.7"
+  dependencies:
+    "inline-worker" "^1.1.0"
 
 "recursive-readdir@2.2.2":
   "integrity" "sha512-nRCcW9Sj7NuZwa2XvH9co8NPeXUBhZP7CRKJtU+cS6PW9FpCIFoI5ib0NT1ZrbNuPoRy0ylyCaUL8Gih4LSyFg=="
